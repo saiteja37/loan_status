@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="bg-dark">
+<center class="mt-4">
+
+    <h1 class="text-light">Loan Status</h1>
+    <form action="/" method="post">
+    <div class="row mt-4">
+        <div class="col-2"></div>
+        <div class="col-3 ml-2">
+            <label><b><h3 class="text-info">Are You Graduated?:</h3></b> </label><br>
+                        <select class="selectpicker form-control" id="company" name="company" required="1"
+                                >
+                            {% for company in edu %}
+                            <option value="{{ company }}">{{ company }}</option>
+                            {% endfor %}
+                        </select>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3 ml-2">
+            <label><b><h3 class="text-info">Are You Self-Employed?</h3></b> </label><br>
+                        <select class="selectpicker form-control" id="emp" name="emp" required="1"
+                                >
+                            {% for emp in emps %}
+                            <option value="{{ emp}}">{{ emp }}</option>
+                            {% endfor %}
+                        </select>
+        </div>
+
+    </div>
+     <div class="row mt-4">
+        <div class="col-2"></div>
+        <div class="col-3 ml-2">
+            <label><b><h3 class="text-info">Select Property Area</h3></b> </label><br>
+                        <select class="selectpicker form-control" id="pro" name="pro" required="1"
+                                >
+                            {% for pro in prop %}
+                            <option value="{{ pro }}">{{ pro }}</option>
+                            {% endfor %}
+                        </select>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3 ml-2">
+            <label><b><h3 class="text-info">Ur Credit Score</h3></b> </label><br>
+                        <select class="selectpicker form-control" id="cre" name="cre" required="1"
+                                >
+                            {% for cre in cred %}
+                            <option value="{{ cre}}">{{ cre }}</option>
+                            {% endfor %}
+                        </select>
+        </div>
+
+    </div>
+    <div class="row mt-5">
+        <div class="col-1">
+
+        </div>
+        <div class="col-5">
+            <input name="loan" placeholder="Enter loan Amount" type="text" class="form-control"><br>
+        </div>
+        <div class="col-5">
+            <input name="income" placeholder="Enter Ur Income" type="text" class="form-control"><br>
+        </div>
+
+
+    </div>
+        <button class="btn-success " type="submit">Check Status</button>
+
+    </form>
+    {% if data %}
+    <h1 mt-4>Your loan is {{data}}<h1>
+        {% endif %}
+</center>
+
+</body>
+</html>
